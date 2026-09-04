@@ -15,6 +15,10 @@ dist-ssr
 *.local
 *.tsbuildinfo
 
+# Local secrets
+.env
+.env.production
+
 # Editor / OS
 .vscode/*
 !.vscode/extensions.json
