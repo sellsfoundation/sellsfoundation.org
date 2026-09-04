@@ -5,24 +5,23 @@ const PROGRAMS = [
   {
     title: 'Children',
     color: 'var(--children-500)',
-    description: 'Basic needs, safety and out-of-school programs for children.',
   },
   {
     title: 'Education',
     color: 'var(--education-600)',
-    description: 'College access, literacy and scholarship partnerships.',
   },
   {
     title: 'Animal Welfare',
     color: 'var(--animals-600)',
-    description: 'Shelter operations, veterinary access and humane education.',
   },
   {
     title: 'The Arts',
     color: 'var(--arts-500)',
-    description: 'Performance, exhibition and arts education for every age.',
   },
 ]
+
+const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL || 'example@example.org'
+const CONTACT_PHONE = import.meta.env.VITE_CONTACT_PHONE || '555.555.5555'
 
 function ArrowRight() {
   return (
@@ -81,17 +80,25 @@ function Button({
 function Wordmark({
   className,
   full = false,
+  showSeal = true,
+  nowrap = false,
 }: {
   className?: string
   full?: boolean
+  showSeal?: boolean
+  nowrap?: boolean
 }) {
   return (
-    <span className={['brand', className].filter(Boolean).join(' ')}>
-      <img className="seal" src={sealLogo} width={56} height={56} alt="" />
+    <span
+      className={['brand', nowrap ? 'brand-nowrap' : '', className]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      {showSeal && (
+        <img className="seal" src={sealLogo} width={56} height={56} alt="" />
+      )}
       <span className="wordmark">
-        The Edwin and Eveline
-        <br />
-        Sells Foundation{full ? ', Inc.' : ''}
+        The Edwin and Eveline Sells Foundation{full ? ', Inc.' : ''}
       </span>
     </span>
   )
@@ -102,14 +109,14 @@ function App() {
     <div className="page">
       <header className="site-header">
         <div className="inner">
-          <Wordmark />
+          <Wordmark showSeal={false} nowrap />
           <nav className="site-nav" aria-label="Primary">
             <a className="is-active" href="#" aria-current="page">
               Home
             </a>
             <a href="#mission">Mission</a>
             <a href="#programs">Programs</a>
-            <a href="#">Grants</a>
+            <a href="#contact">Contact</a>
           </nav>
         </div>
       </header>
@@ -117,16 +124,10 @@ function App() {
       <section className="hero">
         <div className="inner">
           <div className="hero-copy">
-            <h1>Assistance for the organizations doing the work</h1>
-            <p className="lede">
-              The Foundation makes grants to 501(c)(3) organizations serving
-              children, education, animal welfare, and the arts.
-            </p>
-            <div className="hero-actions">
-              <Button href="#" variant="ghost" size="lg" onNavy>
-                See past grants
-              </Button>
-            </div>
+            <h1>
+              Assistance for nonprofit organizations improving our
+              communities in New York&rsquo;s Capital Region and vicinity
+            </h1>
           </div>
           <img className="hero-seal" src={sealLogo} alt="" />
         </div>
@@ -154,20 +155,33 @@ function App() {
               <li key={program.title} className="program-card">
                 <div className="bar" style={{ background: program.color }} />
                 <h3>{program.title}</h3>
-                <p>{program.description}</p>
               </li>
             ))}
           </ul>
+        </section>
+
+        <section id="contact" aria-labelledby="contact-heading" className="section">
+          <p className="section-eyebrow">Get in touch</p>
+          <h2 id="contact-heading">Contact</h2>
+          <hr className="rule" />
+          <div className="contact-actions">
+            <Button href={`mailto:${CONTACT_EMAIL}`} variant="ghost" size="lg">
+              {CONTACT_EMAIL}
+            </Button>
+            <Button
+              href={`tel:${CONTACT_PHONE.replace(/[^+\d]/g, '')}`}
+              variant="ghost"
+              size="lg"
+            >
+              {CONTACT_PHONE}
+            </Button>
+          </div>
         </section>
       </main>
 
       <footer className="site-footer">
         <div className="inner">
           <Wordmark full />
-          <p className="tagline">
-            Assistance for nonprofit organizations serving children, education,
-            animal welfare, and the arts.
-          </p>
         </div>
       </footer>
     </div>
