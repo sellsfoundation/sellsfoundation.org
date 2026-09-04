@@ -252,7 +252,7 @@ body {
 
 .hero h1 {
   margin: 0;
-  font: 700 clamp(2.4rem, 5vw, 61px) / 1.06 var(--font-display);
+  font: 700 clamp(1.9rem, 4vw, 42px) / 1.18 var(--font-display);
   color: var(--parchment-100);
 }
 

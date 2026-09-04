@@ -136,7 +136,7 @@ function App() {
       <main>
         <section id="mission" aria-labelledby="mission-heading" className="section">
           <p className="section-eyebrow">Our Purpose</p>
-          <h2 id="mission-heading">Our Mission</h2>
+          <h2 id="mission-heading">Mission Statement</h2>
           <hr className="rule" />
           <p className="mission-copy">
             To honor the legacy of Edwin and Eveline Sells by providing
