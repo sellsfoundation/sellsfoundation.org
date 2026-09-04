@@ -34,14 +34,28 @@ GitHub Pages.
 To enable it, in the repository settings under **Settings → Pages**, set the
 build and deployment **Source** to **GitHub Actions**.
 
-### Custom domain
+### Base path
 
-The site is configured to serve from the apex domain **sellsfoundation.org** via
-[`public/CNAME`](public/CNAME), so the Vite `base` is set to `/`. Point the
-domain's DNS at GitHub Pages and confirm the custom domain under
-**Settings → Pages**.
+The Vite `base` in [`vite.config.ts`](vite.config.ts) is set to `'./'` (a
+relative base) so the built assets resolve correctly regardless of where the
+site is hosted:
 
-If instead the site is served from the default
-`https://<org>.github.io/sellsfoundation.org/` path, update `base` in
-[`vite.config.ts`](vite.config.ts) to `'/sellsfoundation.org/'` and remove
-`public/CNAME`.
+- the GitHub Pages project subpath — `https://<org>.github.io/sellsfoundation.org/`
+- the apex custom domain — `https://sellsfoundation.org/`
+
+The relative base works for both, so no change is needed when moving to the
+custom domain.
+
+### Custom domain (sellsfoundation.org)
+
+The custom domain is **not enabled yet**. To turn it on:
+
+1. Point the domain's DNS at GitHub Pages (apex `A`/`AAAA` records, or a `CNAME`
+   for `www`, per
+   [GitHub's docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)).
+2. Once DNS resolves, set the custom domain under **Settings → Pages**. GitHub
+   will recreate the `CNAME` file in the published site.
+
+Do not add the `CNAME` file back before DNS is pointed — GitHub will redirect
+the working `github.io` URL to a domain that does not resolve yet, breaking the
+live site.
