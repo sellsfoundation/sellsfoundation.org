@@ -1,6 +1,6 @@
-# Edwin and Evelina Sells Foundation
+# Edwin and Eveline Sells Foundation
 
-The website for the Edwin and Evelina Sells Foundation, which exists to benefit
+The website for the Edwin and Eveline Sells Foundation, which exists to benefit
 non-profit organizations focused on **the arts, children, education, and animal
 welfare** in the Upstate New York and western New England areas.
 
@@ -48,14 +48,12 @@ custom domain.
 
 ### Custom domain (sellsfoundation.org)
 
-The custom domain is **not enabled yet**. To turn it on:
+The custom domain is **active**: the site is served from
+`https://sellsfoundation.org/`, and the `github.io` project URL redirects to it.
 
-1. Point the domain's DNS at GitHub Pages (apex `A`/`AAAA` records, or a `CNAME`
-   for `www`, per
-   [GitHub's docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)).
-2. Once DNS resolves, set the custom domain under **Settings → Pages**. GitHub
-   will recreate the `CNAME` file in the published site.
-
-Do not add the `CNAME` file back before DNS is pointed — GitHub will redirect
-the working `github.io` URL to a domain that does not resolve yet, breaking the
-live site.
+[`public/CNAME`](public/CNAME) pins the domain in the repository so it is the
+source of truth and survives environment or Pages-settings changes. Its contents
+must match the domain configured under **Settings → Pages**. The DNS records for
+the domain must remain pointed at GitHub Pages (apex `A`/`AAAA` records, or a
+`CNAME` for `www`, per
+[GitHub's docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)).
