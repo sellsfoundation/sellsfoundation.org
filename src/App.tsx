@@ -24,8 +24,6 @@ const PROGRAMS = [
   },
 ]
 
-const INQUIRY_HREF = 'mailto:grants@sellsfoundation.org'
-
 function ArrowRight() {
   return (
     <svg
@@ -80,14 +78,20 @@ function Button({
   )
 }
 
-function Wordmark({ className }: { className?: string }) {
+function Wordmark({
+  className,
+  full = false,
+}: {
+  className?: string
+  full?: boolean
+}) {
   return (
     <span className={['brand', className].filter(Boolean).join(' ')}>
       <img className="seal" src={sealLogo} width={56} height={56} alt="" />
       <span className="wordmark">
         The Edwin and Eveline
         <br />
-        Sells Foundation
+        Sells Foundation{full ? ', Inc.' : ''}
       </span>
     </span>
   )
@@ -103,35 +107,22 @@ function App() {
             <a className="is-active" href="#" aria-current="page">
               Home
             </a>
+            <a href="#mission">Mission</a>
             <a href="#programs">Programs</a>
             <a href="#">Grants</a>
-            <a href="#">Apply</a>
           </nav>
-          <Button href={INQUIRY_HREF} variant="accent" size="sm">
-            Start an inquiry
-          </Button>
         </div>
       </header>
 
       <section className="hero">
         <div className="inner">
           <div className="hero-copy">
-            <p className="eyebrow">Spring 2026 cycle now open</p>
             <h1>Assistance for the organizations doing the work</h1>
             <p className="lede">
-              The Foundation makes grants to nonprofit organizations serving
-              children, education, animal welfare, and the arts. Letters of
-              inquiry are accepted twice a year.
+              The Foundation makes grants to 501(c)(3) organizations serving
+              children, education, animal welfare, and the arts.
             </p>
             <div className="hero-actions">
-              <Button
-                href={INQUIRY_HREF}
-                variant="accent"
-                size="lg"
-                iconAfter
-              >
-                Start an inquiry
-              </Button>
               <Button href="#" variant="ghost" size="lg" onNavy>
                 See past grants
               </Button>
@@ -142,6 +133,18 @@ function App() {
       </section>
 
       <main>
+        <section id="mission" aria-labelledby="mission-heading" className="section">
+          <p className="section-eyebrow">Our Purpose</p>
+          <h2 id="mission-heading">Our Mission</h2>
+          <hr className="rule" />
+          <p className="mission-copy">
+            To honor the legacy of Edwin and Eveline Sells by providing
+            financial support to 501(c)(3) organizations dedicated to
+            enriching children&rsquo;s lives, advancing education, supporting
+            the arts, and championing animal welfare.
+          </p>
+        </section>
+
         <section id="programs" aria-labelledby="programs-heading" className="section">
           <p className="section-eyebrow">What we fund</p>
           <h2 id="programs-heading">Four program areas</h2>
@@ -160,18 +163,11 @@ function App() {
 
       <footer className="site-footer">
         <div className="inner">
-          <Wordmark />
+          <Wordmark full />
           <p className="tagline">
             Assistance for nonprofit organizations serving children, education,
             animal welfare, and the arts.
           </p>
-          <address className="contact">
-            P.O. Box 1885
-            <br />
-            Albany, New York 12207
-            <br />
-            <a href={INQUIRY_HREF}>grants@sellsfoundation.org</a>
-          </address>
         </div>
       </footer>
     </div>

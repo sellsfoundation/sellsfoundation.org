@@ -246,16 +246,8 @@ body {
   align-items: center;
 }
 
-.hero .eyebrow {
-  margin: 0;
-  font: 700 12px/1 var(--font-display);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold-300);
-}
-
 .hero h1 {
-  margin: 18px 0 0;
+  margin: 0;
   font: 700 clamp(2.4rem, 5vw, 61px) / 1.06 var(--font-display);
   color: var(--parchment-100);
 }
@@ -280,6 +272,15 @@ body {
   max-width: 340px;
   margin: 0 auto;
   filter: drop-shadow(0 12px 28px rgba(10, 23, 50, 0.45));
+}
+
+/* --- Mission section --- */
+
+.mission-copy {
+  margin: 0;
+  max-width: 68ch;
+  font: 400 19px/1.7 var(--font-body);
+  color: var(--ink-700);
 }
 
 /* --- Programs section --- */
@@ -387,23 +388,6 @@ body {
   font: 400 14px/1.7 var(--font-body);
 }
 
-.site-footer .contact {
-  margin-left: auto;
-  font: 400 12px/1.8 var(--font-interface);
-  font-style: normal;
-  color: var(--navy-300);
-  text-align: right;
-}
-
-.site-footer .contact a {
-  color: var(--navy-300);
-  text-decoration: none;
-}
-
-.site-footer .contact a:hover {
-  color: var(--gold-300);
-}
-
 /* --- Responsive --- */
 
 @media (max-width: 860px) {
@@ -420,11 +404,6 @@ body {
   .site-footer .inner {
     flex-direction: column;
     gap: 24px;
-  }
-
-  .site-footer .contact {
-    margin-left: 0;
-    text-align: left;
   }
 }
 
