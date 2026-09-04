@@ -1,6 +1,6 @@
-# Edwin and Evelina Sells Foundation
+# Edwin and Eveline Sells Foundation
 
-The website for the Edwin and Evelina Sells Foundation, which exists to benefit
+The website for the Edwin and Eveline Sells Foundation, which exists to benefit
 non-profit organizations focused on **the arts, children, education, and animal
 welfare** in the Upstate New York and western New England areas.
 

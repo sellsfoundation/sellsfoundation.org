@@ -34,7 +34,7 @@ function App() {
         <div className="inner">
           <img className="seal" src={sealLogo} width={48} height={48} alt="" />
           <span className="wordmark">
-            Edwin and Evelina
+            Edwin and Eveline
             <br />
             Sells Foundation
           </span>
@@ -43,10 +43,10 @@ function App() {
 
       <section className="hero">
         <div className="inner">
-          <p className="eyebrow">Edwin and Evelina Sells Foundation</p>
+          <p className="eyebrow">Edwin and Eveline Sells Foundation</p>
           <h1>Supporting the causes that strengthen our communities.</h1>
           <p className="lede">
-            The Edwin and Evelina Sells Foundation benefits non-profit
+            The Edwin and Eveline Sells Foundation benefits non-profit
             organizations focused on the arts, children, education, and animal
             welfare across Upstate New York and western New England.
           </p>
@@ -79,7 +79,7 @@ function App() {
 
       <footer className="site-footer">
         <div className="inner">
-          &copy; {new Date().getFullYear()} Edwin and Evelina Sells Foundation.
+          &copy; {new Date().getFullYear()} Edwin and Eveline Sells Foundation.
         </div>
       </footer>
     </div>
