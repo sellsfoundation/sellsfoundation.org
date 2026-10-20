@@ -21,7 +21,7 @@ const PROGRAMS = [
 ]
 
 const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL || 'example@example.org'
-const CONTACT_PHONE = import.meta.env.VITE_CONTACT_PHONE || '555.555.5555'
+const CONTACT_PHONE = import.meta.env.VITE_CONTACT_PHONE || '518.250.8201'
 
 function ArrowRight() {
   return (
